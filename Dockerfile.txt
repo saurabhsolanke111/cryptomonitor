@@ -1,0 +1,7 @@
+FROM openjdk:11.0.12-jre AS builder
+RUN java -version
+
+COPY . /usr/src/myapp/
+WORKDIR /usr/src/myapp/
+RUN apk --no-cache add maven && mvn --version
+RUN mvn package
